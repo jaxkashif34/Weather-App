@@ -26,29 +26,28 @@ const App = () => {
   };
 
   const weatherIcon = () => {
-    if (apiData?.data?.weather[0].description == "clear sky") {
+    if (apiData?.data?.weather[0].description === "clear sky") {
       return setWeatherMood("https://openweathermap.org/img/wn/01d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "few clouds") {
+    } else if (apiData?.data?.weather[0].description === "few clouds") {
       return setWeatherMood("https://openweathermap.org/img/wn/02d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "scattered clouds") {
+    } else if (apiData?.data?.weather[0].description === "scattered clouds") {
       return setWeatherMood("https://openweathermap.org/img/wn/03d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "broken clouds") {
+    } else if (apiData?.data?.weather[0].description === "broken clouds") {
       return setWeatherMood("https://openweathermap.org/img/wn/04d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "shower rain") {
+    } else if (apiData?.data?.weather[0].description === "shower rain") {
       return setWeatherMood("https://openweathermap.org/img/wn/09d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "rain") {
+    } else if (apiData?.data?.weather[0].description === "rain") {
       return setWeatherMood("https://openweathermap.org/img/wn/10d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "thunderstorm") {
+    } else if (apiData?.data?.weather[0].description === "thunderstorm") {
       return setWeatherMood("https://openweathermap.org/img/wn/11d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "snow") {
+    } else if (apiData?.data?.weather[0].description === "snow") {
       return setWeatherMood("https://openweathermap.org/img/wn/13d@2x.png");
-    } else if (apiData?.data?.weather[0].description == "mist") {
+    } else if (apiData?.data?.weather[0].description === "mist") {
       return setWeatherMood("https://openweathermap.org/img/wn/50d@2x.png");
     } else {
       console.log("Error is happening");
     }
   };
-
 
   // Run when window load
   useEffect(() => {
@@ -145,48 +144,50 @@ const App = () => {
             </div>
           </div>
           <div className="week-container">
-            <ul class="week-list">
+            <ul className="week-list">
               <li className="Icon-Container">
-                <i class="day-icon" data-feather="sun">
+                <i className="day-icon" data-feather="sun">
                   <WiSunrise className="later-icon" />
                 </i>
-                <span class="day-name">Sunrise</span>
-                <span class="day-temp">
+                <span className="day-name">Sunrise</span>
+                <span className="day-temp">
                   {msToTime(apiData?.data?.sys?.sunrise)} AM
                 </span>
               </li>
               <li className="Icon-Container">
-                <i class="day-icon">
+                <i className="day-icon">
                   <WiSunset className="later-icon" />
                 </i>
-                <span class="day-name">Sunset</span>
-                <span class="day-temp">
+                <span className="day-name">Sunset</span>
+                <span className="day-temp">
                   {msToTime(apiData?.data?.sys?.sunset)} PM
                 </span>
               </li>
               <li className="Icon-Container">
-                <i class="day-icon">
+                <i className="day-icon">
                   <MdWaves className="later-icon" />
                 </i>
-                <span class="day-name">Sea-Level</span>
-                <span class="day-temp">{apiData?.data?.main?.sea_level} h</span>
+                <span className="day-name">Sea-Level</span>
+                <span className="day-temp">
+                  {apiData?.data?.main?.sea_level} h
+                </span>
               </li>
               <li className="Icon-Container">
-                <i class="day-icon">
+                <i className="day-icon">
                   <GiGroundSprout className="later-icon" />
                 </i>
-                <span class="day-name">Grnd-Level</span>
-                <span class="day-temp">
+                <span className="day-name">Grnd-Level</span>
+                <span className="day-temp">
                   {apiData?.data?.main?.grnd_level} h
                 </span>
               </li>
-              <div class="clear"></div>
+              <div className="clear"></div>
             </ul>
           </div>
           <div className="location-container form__group">
             <input
               type="input"
-              class="form__field"
+              className="form__field"
               placeholder="Name"
               name="name"
               id="name"
@@ -196,8 +197,8 @@ const App = () => {
                 setCity(e.target.value);
               }}
             />
-            <label for="name" class="form__label">
-              Name
+            <label name="name" className="form__label">
+              City
             </label>
             <button
               className="location-button"
